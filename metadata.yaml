@@ -1,0 +1,9 @@
+name: path_doctor
+display_name: 后台体检
+desc: 一条 /diag 看清四层状态：插件（元数据/依赖/配置/加载/版本漂移/命令冲突）、AstrBot（版本/平台/事件循环/库表/日志）、协议端（OneBot API 往返与端口连接）、宿主机（负载/内存/磁盘/inode/挂载/PSI/容器）；含共享目录对端可见性、网络实测（国内/海外/代理三结论 + 代理真实出网实测）、启动自检清单 /diag startup、自检快照、协议端能力矩阵、7 页 Excel 体检报告与带统计样式的群成员 Excel 导出。仅管理员可用（可配置），无第三方依赖。
+version: v2.5.3
+author: 哦鲸鲸
+repo: https://github.com/shogun-0410/astrbot-plugin-path-doctor
+support_platforms:
+  - aiocqhttp
+astrbot_version: ">=4.16"

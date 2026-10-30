@@ -1,0 +1,9 @@
+# 打包产物（Release 里挂 zip，仓库内不重复留大包）
+插件包/*.zip
+*.zip
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.dev_data/
+tests/_tmp/

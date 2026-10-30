@@ -1,0 +1,68 @@
+{
+  "admin_only": {
+    "description": "仅管理员可用",
+    "type": "bool",
+    "default": true,
+    "hint": "path_doctor 会输出路径、进程身份等信息，默认只允许管理员调用。admin_list 为空时自动放行并提示配置。"
+  },
+  "admin_list": {
+    "description": "管理员 QQ 列表",
+    "type": "string",
+    "default": "",
+    "hint": "逗号分隔；admin_only 开启时只放行这些人。空 = 不限制（会提示配置）。"
+  },
+  "shared_dir": {
+    "description": "默认共享目录",
+    "type": "string",
+    "default": "",
+    "hint": "留空 = AstrBot 临时目录（通常 /AstrBot/data/temp）。/diag shared、/diag writetest 不带参数时用它。"
+  },
+  "send_dir": {
+    "description": "报告与导出文件输出目录",
+    "type": "string",
+    "default": "",
+    "hint": "留空 = 共享目录下 path_doctor_export/。必须是协议端也能读到的共享目录（通常 /AstrBot/data/temp），否则发出的文件会 EACCES。"
+  },
+  "export_max_members": {
+    "description": "单个群导出成员上限",
+    "type": "int",
+    "default": 5000,
+    "hint": "防止超大群把内存/Excel 撑爆；超过只导出前 N 人。"
+  },
+  "export_keep_files": {
+    "description": "导出文件保留份数",
+    "type": "int",
+    "default": 5,
+    "hint": "导出目录里只保留最近 N 个文件，更旧的自动删除。"
+  },
+  "probe_protocol": {
+    "description": "在 /diag proto 里实测协议端 API",
+    "type": "bool",
+    "default": true,
+    "hint": "会真的调用 get_login_info / get_status / get_version_info / get_group_list，用于判断协议端是否健康。嫌吵可关。"
+  },
+  "probe_net_proxy": {
+    "description": "在 /diag net 里实测代理端口与出网",
+    "type": "bool",
+    "default": true,
+    "hint": "会探本机 7890/7891/1080 与宿主网关的代理端口，并经可用代理真实取一次海外 204（约 1-6 秒）。只读、不读密钥；嫌慢可关。"
+  },
+  "auto_snapshot": {
+    "description": "定时写自检快照",
+    "type": "bool",
+    "default": false,
+    "hint": "开启后按 report_interval_hours 周期把体检快照写到 plugin_data/path_doctor/snapshots/，方便回溯「什么时候开始坏的」。"
+  },
+  "report_interval_hours": {
+    "description": "自检快照间隔（小时）",
+    "type": "int",
+    "default": 24,
+    "hint": "仅在 auto_snapshot 开启时生效；最小 1 小时。"
+  },
+  "report_keep": {
+    "description": "自检快照保留份数",
+    "type": "int",
+    "default": 7,
+    "hint": "只保留最近 N 份 snapshot_*.txt。"
+  }
+}

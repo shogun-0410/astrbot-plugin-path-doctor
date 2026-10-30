@@ -409,6 +409,8 @@ B 两次都失败           → 两段 ok=False attempts=2
 `发布状态.md`、`GitHub发布\_发布状态表.md`、云端手册（§一/§二）、`01_交付清单.md`（版本/SHA256）、
 `AGENTS.md`、`00_总体框架.md §五`、交接 §7/§7.1、`27_…交付通知.md`。
 
+> 发布：v2.5.3 已上公开仓库 <https://github.com/shogun-0410/astrbot-plugin-path-doctor>（Release v2.5.3，zip SHA256 `d67ff26418c32def51fa3a139769ea5bee9a0472c900402420697f1439667cfc`）。
+>
 > 过程小事故（已闭环）：本次为图快用 PowerShell `Get-Content/Set-Content` 改版本号，**引入了 UTF-8 BOM**
 > （项目记忆里警告过的坑）。已用 Python 以 `utf-8-sig` 读、`utf-8` 无 BOM 写回，并核对行尾仍是 LF
 > （包内 4316 行、无 CRLF）；终检脚本确认所有文件 BOM=0、mojibake=0。此后改源码一律用编辑工具 / Python。
